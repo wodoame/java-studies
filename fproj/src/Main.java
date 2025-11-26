@@ -1,33 +1,44 @@
-public class Main{
-    public static void main(String[] args){
-    Student me = new Student("Bernard Wodoame", 20, "S12345");
-    System.out.println("Name: " + me.getName());
-    System.out.println("Age: " + me.getAge());
-    System.out.println("ID: " + me.getId());
+public class Main {
+    int x; // Create a class attribute;
+
+    public static void main(String[] args) {
+        Main myCar = new Main(5); // Create a myCar object
+        System.out.println(myCar.x ); // Print the value of x
+        myCar.fullThrottle(); // Call the fullThrottle() method
+        myCar.speed(200); // Call the speed() method and pass a value
+    }
+
+    // Create a class constructor for the Main class
+    public Main(int y) {
+        x = y;
+    }
+
+
+    // Create a fullThrottle() method
+    public void fullThrottle() {
+        System.out.println("The car is going as fast as it can!");
+    }
+
+    // Create a speed() method and add a parameter
+    public void speed(int maxSpeed) {
+        System.out.println("Max speed is: " + maxSpeed);
+    }
+
+    static void myMethod() {
+        System.out.println("Hello from myMethod!");
     }
 }
 
-// For Demonstration Purposes
-class Student{
-    private final String name;
-    private final int age;
-    private final String id;
+class Person {
+    private String name; // private = restricted access
 
-    public Student(String name, int age, String id){
-        this.name = name;
-        this.age = age;
-        this.id = id;
-    }
-
-    public String getName(){
+    // Getter
+    public String getName() {
         return name;
     }
 
-    public int getAge(){
-        return age;
-    }
-
-    public String getId(){
-        return id;
+    // Setter
+    public void setName(String newName) {
+        this.name = newName;
     }
 }
