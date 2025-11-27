@@ -3,9 +3,9 @@ package com.bam;
 import java.util.Scanner;
 
 public class Main {
-    private static AccountManager accountManager = new AccountManager();
-    private static TransactionManager transactionManager = new TransactionManager();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final AccountManager accountManager = new AccountManager();
+    private static final TransactionManager transactionManager = new TransactionManager();
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         boolean exit = false;
@@ -136,7 +136,6 @@ public class Main {
     }
 
     private static void viewTransactionHistory() {
-        System.out.println("\n--- View Transaction History ---");
         String accountNumber = getStringInput("Enter Account Number: ");
         Account account = accountManager.findAccount(accountNumber);
 
@@ -146,26 +145,6 @@ public class Main {
         }
 
         transactionManager.viewTransactionsByAccount(accountNumber);
-
-        // Summary
-        // Note: TransactionManager calculates total for ALL transactions, not just for
-        // one account.
-        // The instructions say "Display summary: total deposits, total withdrawals, net
-        // change" for the account.
-        // My TransactionManager methods calculateTotalDeposits/Withdrawals iterate over
-        // ALL transactions.
-        // I should probably refrain from using those global totals here if the context
-        // is single account.
-        // However, the instructions for US-4 say "Display summary...". It implies for
-        // that account.
-        // I'll implement a local calculation here or update TransactionManager.
-        // For now, I'll just calculate locally to be safe and accurate for the specific
-        // account.
-
-        // Actually, let's just show the list as per the method
-        // viewTransactionsByAccount.
-        // If I need summary for the specific account, I should probably add that logic.
-        // Let's stick to the viewTransactionsByAccount output for now.
     }
 
     // Helper methods for input

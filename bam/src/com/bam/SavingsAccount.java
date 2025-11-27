@@ -1,8 +1,8 @@
 package com.bam;
 
 public class SavingsAccount extends Account {
-    private double interestRate;
-    private double minimumBalance;
+    private final double interestRate;
+    private final double minimumBalance;
 
     public SavingsAccount(Customer customer, double initialDeposit) {
         super(customer, initialDeposit);

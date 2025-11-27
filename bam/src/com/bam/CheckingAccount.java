@@ -1,8 +1,8 @@
 package com.bam;
 
 public class CheckingAccount extends Account {
-    private double overdraftLimit;
-    private double monthlyFee;
+    private final double overdraftLimit;
+    private final double monthlyFee;
 
     public CheckingAccount(Customer customer, double initialDeposit) {
         super(customer, initialDeposit);

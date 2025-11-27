@@ -1,7 +1,7 @@
 package com.bam;
 
 public class TransactionManager {
-    private Transaction[] transactions;
+    private final Transaction[] transactions;
     private int transactionCount;
 
     public TransactionManager() {
@@ -18,18 +18,35 @@ public class TransactionManager {
     }
 
     public void viewTransactionsByAccount(String accountNumber) {
-        System.out.println("Transaction History for Account: " + accountNumber);
+        System.out.println("TRANSACTION HISTORY FOR ACCOUNT NUMBER " + accountNumber);
+        final String headerFormat = "%-10s | %-12s | %-12s | %-25s%n";
+        final String rowFormat = "%-10s | %-12s | %-12s | %-25s%n";
+        final int tableWidth = 10 + 3 + 12 + 3 + 12 + 3 + 25;
+        final String divider = "-".repeat(tableWidth);
+        System.out.println(divider);
+        System.out.printf(headerFormat, "TXN ID", "AMOUNT", "BALANCE", "DATE/TIME");
+        System.out.println(divider);
         boolean found = false;
         // Display in reverse chronological order (newest first)
         for (int i = transactionCount - 1; i >= 0; i--) {
-            if (transactions[i].getAccountNumber().equals(accountNumber)) {
-                transactions[i].displayTransactionDetails();
+            Transaction txn = transactions[i];
+            if (txn.getAccountNumber().equals(accountNumber)) {
+                String amountValue = String.format("$%.2f", txn.getAmount());
+                String balanceValue = String.format("$%.2f", txn.getBalanceAfter());
+                System.out.printf(
+                        rowFormat,
+                        txn.getTransactionId(),
+                        amountValue,
+                        balanceValue,
+                        txn.getTimestamp().toString()
+                );
                 found = true;
             }
         }
         if (!found) {
             System.out.println("No transactions found for this account.");
         }
+        System.out.println(divider);
     }
 
     public double calculateTotalDeposits() {
