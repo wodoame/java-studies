@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/src/Main.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/Main.java" />
+              <option name="originalContent" value="public class Main {&#10; public static void main(String[] args) {&#10;}&#10;}" />
+              <option name="updatedContent" value="public class Main {&#10;    public static void main(String[] args) {&#10;        Array numbers = new Array();&#10;        numbers.insert(10);&#10;        numbers.insert(20);&#10;        numbers.insert(30);&#10;        numbers.insert(40);&#10;        numbers.insert(50);&#10;&#10;        System.out.println(&quot;Numbers: &quot; + numbers);&#10;        System.out.println(&quot;Item at index 2: &quot; + numbers.getItem(2));&#10;        numbers.removeAt(1);&#10;        System.out.println(&quot;After removing index 1: &quot; + numbers);&#10;        System.out.println(&quot;Index of 40: &quot; + numbers.indexOf(40));&#10;&#10;        String sample = &quot;abracadabra&quot;;&#10;        char mostFrequent = Array.getMaximumOccurringCharacter(sample);&#10;        System.out.println(&quot;Most frequent char in '&quot; + sample + &quot;' is '&quot; + mostFrequent + &quot;'&quot;);&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

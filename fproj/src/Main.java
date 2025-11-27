@@ -1,44 +1,20 @@
 public class Main {
-    int x; // Create a class attribute;
-
     public static void main(String[] args) {
-        Main myCar = new Main(5); // Create a myCar object
-        System.out.println(myCar.x ); // Print the value of x
-        myCar.fullThrottle(); // Call the fullThrottle() method
-        myCar.speed(200); // Call the speed() method and pass a value
-    }
+        Array numbers = new Array();
+        numbers.insert(10);
+        numbers.insert(20);
+        numbers.insert(30);
+        numbers.insert(40);
+        numbers.insert(50);
 
-    // Create a class constructor for the Main class
-    public Main(int y) {
-        x = y;
-    }
+        System.out.println("Numbers: " + numbers);
+        System.out.println("Item at index 2: " + numbers.getItem(2));
+        numbers.removeAt(1);
+        System.out.println("After removing index 1: " + numbers);
+        System.out.println("Index of 40: " + numbers.indexOf(40));
 
-
-    // Create a fullThrottle() method
-    public void fullThrottle() {
-        System.out.println("The car is going as fast as it can!");
-    }
-
-    // Create a speed() method and add a parameter
-    public void speed(int maxSpeed) {
-        System.out.println("Max speed is: " + maxSpeed);
-    }
-
-    static void myMethod() {
-        System.out.println("Hello from myMethod!");
-    }
-}
-
-class Person {
-    private String name; // private = restricted access
-
-    // Getter
-    public String getName() {
-        return name;
-    }
-
-    // Setter
-    public void setName(String newName) {
-        this.name = newName;
+        String sample = "abracadabra";
+        char mostFrequent = Array.getMaximumOccurringCharacter(sample);
+        System.out.println("Most frequent char in '" + sample + "' is '" + mostFrequent + "'");
     }
 }
