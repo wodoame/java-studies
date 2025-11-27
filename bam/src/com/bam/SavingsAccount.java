@@ -34,6 +34,7 @@ public class SavingsAccount extends Account {
             return true;
         } else {
             System.out.println("Withdrawal failed. Insufficient funds or minimum balance constraint.");
+            System.out.println("You must have at least $" + minimumBalance + " remaining after withdrawal.");
             return false;
         }
     }
