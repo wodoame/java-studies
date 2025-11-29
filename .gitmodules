@@ -1,0 +1,3 @@
+[submodule "bam"]
+	path = bam
+	url = git@github.com:wodoame/bam.git
