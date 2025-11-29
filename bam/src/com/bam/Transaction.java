@@ -47,4 +47,13 @@ public class Transaction {
     public double getBalanceAfter() {
         return balanceAfter;
     }
+    public void displayTransactionDetails() {
+        System.out.println("Transaction ID: " + transactionId);
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Type: " + type);
+        System.out.printf("Amount: $%.2f%n", amount);
+        System.out.printf("Previous Balance: $%.2f%n", type.equalsIgnoreCase("Deposit")? balanceAfter - amount: balanceAfter + amount);
+        System.out.printf("New Balance: $%.2f%n", balanceAfter);
+        System.out.println("Timestamp: " + timestamp);
+    }
 }

@@ -94,6 +94,17 @@ public class Main {
         transactionManager.addTransaction(txn);
     }
 
+    private static boolean showTransactionConfirmationPrompt(Transaction txn) {
+        System.out.println("\nTRANSACTION CONFIRMATION");
+        System.out.println("________________________________");
+        txn.displayTransactionDetails();
+        String confirmationChoice = getStringInput("Confirm transaction? (Y/N): ");
+        if (!confirmationChoice.equalsIgnoreCase("Y")) {
+            System.out.println("Transaction cancelled.");
+            return false;
+        }
+        return true;
+    }
     private static void processTransaction() {
         System.out.println("\n--- Process Transaction ---");
         String accountNumber = getStringInput("Enter Account Number: ");
@@ -110,18 +121,26 @@ public class Main {
         int typeChoice = getIntInput("Enter choice: ");
 
         double amount = getDoubleInput("Enter Amount: ");
+        Transaction txn;
 
         boolean success = false;
         String type = "";
         if (typeChoice == 1) {
             type = "Deposit";
+            txn = new Transaction(account.getAccountNumber(), type, amount, account.getBalance() + amount);
+            boolean isConfirmed = showTransactionConfirmationPrompt(txn);
+            if (!isConfirmed) {
+                return;
+            }
             account.deposit(amount);
-            success = true; // Deposit logic in Account doesn't return boolean but prints. Assuming success
-                            // if amount > 0.
-            if (amount <= 0)
-                success = false;
+            success = !(amount <= 0);
         } else if (typeChoice == 2) {
             type = "Withdrawal";
+            txn = new Transaction(account.getAccountNumber(), type, amount, account.getBalance() - amount);
+            boolean isConfirmed = showTransactionConfirmationPrompt(txn);
+            if(!isConfirmed){
+                return;
+            }
             success = account.withdraw(amount);
         } else {
             System.out.println("Invalid transaction type.");
@@ -129,7 +148,6 @@ public class Main {
         }
 
         if (success) {
-            Transaction txn = new Transaction(account.getAccountNumber(), type, amount, account.getBalance());
             transactionManager.addTransaction(txn);
             System.out.println("Transaction recorded.");
         }

@@ -1,5 +1,7 @@
 package com.bam;
 
+import java.util.Scanner;
+
 public class AccountManager {
     private final Account[] accounts;
     private int accountCount;
@@ -12,7 +14,10 @@ public class AccountManager {
     public void addAccount(Account account) {
         if (accountCount < accounts.length) {
             accounts[accountCount++] = account;
-            System.out.println("Account created successfully. Account Number: " + account.getAccountNumber());
+            System.out.println("\nAccount created successfully!");
+            account.displayAccountDetails();
+            System.out.println("\nPress Enter to continue...");
+            new Scanner(System.in).nextLine();
         } else {
             System.out.println("Account limit reached. Cannot create new account.");
         }

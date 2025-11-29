@@ -1,5 +1,7 @@
 package com.bam;
 
+import java.util.Scanner;
+
 public class TransactionManager {
     private final Transaction[] transactions;
     private int transactionCount;
@@ -27,11 +29,15 @@ public class TransactionManager {
         System.out.printf(headerFormat, "TXN ID", "AMOUNT", "BALANCE", "DATE/TIME");
         System.out.println(divider);
         boolean found = false;
+        int totalTransactions = 0;
+        double totalDeposits = 0;
+        double totalWithdrawals = 0;
         // Display in reverse chronological order (newest first)
         for (int i = transactionCount - 1; i >= 0; i--) {
             Transaction txn = transactions[i];
             if (txn.getAccountNumber().equals(accountNumber)) {
-                String amountValue = String.format("$%.2f", txn.getAmount());
+                String sign = txn.getType().equalsIgnoreCase("deposit") ? "+" : "-";
+                String amountValue = String.format("%s$%.2f", sign, txn.getAmount());
                 String balanceValue = String.format("$%.2f", txn.getBalanceAfter());
                 System.out.printf(
                         rowFormat,
@@ -41,12 +47,30 @@ public class TransactionManager {
                         txn.getTimestamp().toString()
                 );
                 found = true;
+                totalTransactions++;
+                if (txn.getType().equalsIgnoreCase("deposit")) {
+                    totalDeposits += txn.getAmount();
+                } else {
+                    totalWithdrawals += txn.getAmount();
+                }
             }
         }
         if (!found) {
             System.out.println("No transactions found for this account.");
         }
         System.out.println(divider);
+
+        // Display summary statistics
+        if (found) {
+            double netChange = totalDeposits - totalWithdrawals;
+            System.out.println("\nSUMMARY:");
+            System.out.printf("Total Transactions: %d%n", totalTransactions);
+            System.out.printf("Total Deposits:     +$%.2f%n", totalDeposits);
+            System.out.printf("Total Withdrawals:  -$%.2f%n", totalWithdrawals);
+            System.out.printf("Net Change:         %s$%.2f%n", netChange >= 0 ? "+" : "", netChange);
+            System.out.println("\nPress Enter to continue...");
+            new Scanner(System.in).nextLine();
+        }
     }
 
     public double calculateTotalDeposits() {
