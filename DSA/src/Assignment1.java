@@ -67,7 +67,6 @@ public class Assignment1 {
         }
 
         int n = nums.length;
-        k = k % n; // Handle k > n
 
         if (k == 0) {
             return;
