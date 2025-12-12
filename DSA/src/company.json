@@ -1,0 +1,129 @@
+{
+    "name": "Head Office",
+    "subDepartments": [
+        {
+            "name": "Marketing",
+            "interns": [
+                55,
+                12
+            ],
+            "managers": [
+                601,
+                602,
+                603
+            ],
+            "subDepartments": []
+        },
+        {
+            "name": "Tech",
+            "interns": [
+                99
+            ],
+            "managers": [
+                700,
+                750,
+                800
+            ],
+            "subDepartments": [
+                {
+                    "name": "Tech Support",
+                    "interns": [
+                        10,
+                        20
+                    ],
+                    "managers": [
+                        900,
+                        950
+                    ],
+                    "subDepartments": []
+                },
+                {
+                    "name": "Development",
+                    "interns": [
+                        42,
+                        101
+                    ],
+                    "managers": [
+                        1100,
+                        1150
+                    ],
+                    "subDepartments": [
+                        {
+                            "name": "Mobile",
+                            "interns": [
+                                8,
+                                9
+                            ],
+                            "managers": [
+                                1200,
+                                1205
+                            ],
+                            "subDepartments": [
+                                {
+                                    "name": "iOS",
+                                    "interns": [
+                                        5
+                                    ],
+                                    "managers": [
+                                        1210,
+                                        1215
+                                    ],
+                                    "subDepartments": []
+                                },
+                                {
+                                    "name": "Android",
+                                    "interns": [
+                                        3
+                                    ],
+                                    "managers": [
+                                        1220,
+                                        1225
+                                    ],
+                                    "subDepartments": []
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Web",
+                            "interns": [
+                                33,
+                                44
+                            ],
+                            "managers": [
+                                1300,
+                                1310
+                            ],
+                            "subDepartments": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Sales",
+            "interns": [
+                66,
+                77
+            ],
+            "managers": [
+                1400,
+                1450,
+                1500
+            ],
+            "subDepartments": [
+                {
+                    "name": "Enterprise",
+                    "interns": [
+                        88,
+                        11
+                    ],
+                    "managers": [
+                        1510,
+                        1520
+                    ],
+                    "subDepartments": []
+                }
+            ]
+        }
+    ]
+}
