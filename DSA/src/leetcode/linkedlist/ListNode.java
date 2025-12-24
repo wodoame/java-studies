@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.linkedlist;
 
 //  Definition for singly-linked list.
 public class ListNode {

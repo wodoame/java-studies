@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.linkedlist;
 
 // leetcode: 876
 public class MiddleOfLinkedList {

@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.arrays;
 
 import java.util.Arrays;
 // leetcode 1480

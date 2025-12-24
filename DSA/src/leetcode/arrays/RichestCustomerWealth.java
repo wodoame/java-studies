@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.arrays;
 
 // leetcode: 1672
 public class RichestCustomerWealth {
