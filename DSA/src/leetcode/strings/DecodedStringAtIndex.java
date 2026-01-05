@@ -2,18 +2,29 @@ package leetcode.temp.strings;
 
 public class DecodedStringAtIndex {
     static void main() {
-        System.out.println(decodeAtIndex("t2", 1));
+        System.out.println(decodeAtIndex("leet2code3", 10));
     }
     public static String decodeAtIndex(String s, int k) {
-        StringBuilder buffer = new StringBuilder();
+        int totalLength = 0;
         for (int i = 0; i < s.length(); i++) {
-            char current = s.charAt(i);
-            if(Character.isDigit(current)){
-                int repeatCount = current - '0'; // Convert char digit to numeric value
-                buffer = new StringBuilder(buffer.toString().repeat(repeatCount));
-            }else buffer.append(current);
+            if(Character.isLetter(s.charAt(i)))totalLength++;
+            else totalLength *= s.charAt(i) - '0';
         }
-        System.out.println(buffer);
-        return Character.toString(buffer.charAt(k - 1));
+        int j = s.length() - 1;
+        while(j >= 0){
+            int current = s.charAt(j);
+            if(Character.isLetter(current)){
+                if(totalLength % k == 0)return Character.toString(current);
+                totalLength--;
+            }
+            else{
+                totalLength /= current - '0';
+                k %= totalLength;
+            }
+            j--;
+        }
+
+        System.out.println(totalLength);
+        return "";
     }
 }
