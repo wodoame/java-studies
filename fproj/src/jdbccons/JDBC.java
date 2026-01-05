@@ -18,7 +18,7 @@ import java.sql.*;
 public class JDBC {
 // General format: jdbc:postgresql://[host]:[port]/[database]?[parameters]
 // jdbc:postgresql://localhost:5432/mydb?user=postgres&password=secret
- try(Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:")){
+// try(Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:")){
     //
  }
-}
+//}
