@@ -19,6 +19,7 @@ public class DecodedStringAtIndex {
             }
             else{
                 totalLength /= current - '0';
+                k %= totalLength;
             }
             j--;
         }
