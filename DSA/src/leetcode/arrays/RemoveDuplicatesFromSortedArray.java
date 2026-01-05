@@ -24,18 +24,14 @@ public class RemoveDuplicatesFromSortedArray {
 
     // in-place solution
     public static int removeDuplicatesInPlace(int[] nums){
-       int previous =  nums[0];
        int positionToInsert = 1;
-       int k = 1;
        for(int i=1; i< nums.length; i++){
            int current = nums[i];
-           if(current != previous){
+           if(nums[i] != nums[i - 1]){
                nums[positionToInsert++] = current;
-               previous = current;
-               k += 1;
            }
        }
 
-       return k;
+       return positionToInsert;
     }
 }

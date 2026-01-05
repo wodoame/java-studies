@@ -1,10 +1,10 @@
-
 " --- General Settings ---
 set nocompatible            " Disable compatibility with old vi
 filetype plugin indent on   " Enable detection, plugins, and indenting for filetypes
 syntax on                   " Enable syntax highlighting (This setting doesn't work on this version)
 set encoding=utf-8          " Standard encoding
 "set scriptencoding=utf-8 
+set clipboard=unnamedplus
 
 " --- UI & Numbers ---
 set number                  " Show absolute line number
