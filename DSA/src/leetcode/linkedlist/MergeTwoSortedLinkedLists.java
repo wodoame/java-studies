@@ -1,6 +1,5 @@
-package leetcode.temp.linkedlists;
+package leetcode.linkedlist;
 
-import leetcode.ListNode;
 
 // leetcode 21
 public class MergeTwoSortedLinkedLists {

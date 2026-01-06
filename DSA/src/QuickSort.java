@@ -48,6 +48,7 @@ public class QuickSort {
 
     // This function takes the last element as pivot and places
     // it at its correct position in the sorted array
+    // [8, 3, 5, 1, 2]
     static int partition(int[] arr, int low, int high) {
         int pivot = arr[high];
         int i = (low - 1); // Index of smaller element
