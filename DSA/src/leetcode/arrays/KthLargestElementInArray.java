@@ -1,40 +1,30 @@
 package leetcode.arrays;
 
+import java.util.PriorityQueue;
+
 public class KthLargestElementInArray {
+
     static void main() {
        int[] nums = {1, 2, 3, 3};
         System.out.println(findKthLargest(nums, 2));
     }
-    // kth largest = (arr.length - k + 1)th smallest
+
+    // Using Min-Heap approach: O(n log k) time, O(k) space
+    // Maintain a min-heap of size k with the k largest elements
+    // The root of the heap will be the kth largest element
     public static int findKthLargest(int[] nums, int k) {
-        return quickSelect(nums, 0, nums.length - 1, k);
-    }
+        // Min-heap to keep track of k largest elements
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 
-    public static int partition(int[] nums, int low, int high){
-        int pivot = nums[high];
-        int i = low;
-        for (int j = low; j < high; j++) {
-            if(nums[j] <= pivot)swap(nums, i++, j);
+        for (int num : nums) {
+            minHeap.offer(num);
+            // Keep only k largest elements in the heap
+            if (minHeap.size() > k) {
+                minHeap.poll(); // Remove smallest element
+            }
         }
-        swap(nums, i, high);
-        return i;
-    }
 
-    public static int quickSelect(int[] nums, int low, int high, int k){
-        int pi = partition(nums, low, high);
-        int targetIndex = nums.length - k;
-        if(pi == targetIndex){
-            return nums[pi];
-        }
-        else if(pi < targetIndex){
-            return quickSelect(nums, pi + 1, high, k);
-        }
-        return quickSelect(nums, low, pi - 1, k);
-    }
-
-    public static void swap(int[] nums, int i, int j){
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
+        // The root of min-heap is the kth largest element
+        return minHeap.isEmpty() ? -1 : minHeap.peek();
     }
 }
