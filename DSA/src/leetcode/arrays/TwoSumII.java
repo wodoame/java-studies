@@ -1,4 +1,4 @@
-package leetcode.temp.arrays;
+package leetcode.arrays;
 
 // leetcode 127
 public class TwoSumII {

@@ -1,4 +1,4 @@
-package leetcode.temp.arrays;
+package leetcode.arrays;
 
 public class LongestCommonPrefix {
     static void main() {

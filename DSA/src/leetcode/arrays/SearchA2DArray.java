@@ -1,4 +1,4 @@
-package leetcode.temp.arrays;
+package leetcode.arrays;
 
 // leetcode 74
 public class SearchA2DArray {
