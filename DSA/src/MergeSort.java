@@ -11,7 +11,7 @@ public class MergeSort {
         printArray(arr);
     }
 
-    // Main function that sorts arr[l..r] using merge()
+    // trees.Main function that sorts arr[l..r] using merge()
     static void sort(int[] arr, int l, int r) {
         if (l < r) {
             // Find the middle point

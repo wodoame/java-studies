@@ -28,3 +28,4 @@ public static int[] flatten(int[][] arr) {
   }
 ```
 8. To find the kth largest or kth smallest element in an unsorted array you can use quickselect. Or more simply you can use a min-heap or a max-heap.
+9. When sorting a list of values based on another property (say their frequency), try to see if a comparator helps in the sorting. 

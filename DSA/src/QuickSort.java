@@ -34,7 +34,7 @@ public class QuickSort {
         System.out.println("Output: " + result3);
     }
 
-    // Main Quicksort function
+    // trees.Main Quicksort function
     static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
             // pi is the partitioning index
