@@ -5,7 +5,7 @@ import java.util.Arrays;
 // leetcode 189
 public class RotateArray {
     static void main() {
-       int[] arr = {1, 2, 3};
+       int[] arr = {1, 2, 3, 4, 5};
        rotate(arr, 1);
         System.out.println(Arrays.toString(arr));
     }

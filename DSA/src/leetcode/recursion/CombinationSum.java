@@ -13,16 +13,14 @@ public class CombinationSum {
 
     public void findCombinations(int i, List<List<Integer>> res, List<Integer> subset,  int[] candidates, int target, HashSet<List<Integer>> seen) {
         if(seen.contains(subset))return;
-        int sum = subset.stream().mapToInt(Integer::intValue).sum();
-        if(sum > target)return;
-        if(sum == target){
+        if(target < 0)return;
+        if(target == 0){
             res.add(new ArrayList<>(subset));
             seen.add(subset);
         }
         if(i == candidates.length) return;
         subset.add(candidates[i]);
-        findCombinations(i, res, subset, candidates, target, seen);
-        findCombinations(i + 1, res, subset, candidates, target, seen);
+        findCombinations(i, res, subset, candidates, target - candidates[i], seen);
         subset.removeLast();
         findCombinations(i + 1, res, subset, candidates, target, seen);
     }
