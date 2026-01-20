@@ -53,7 +53,7 @@ public class Permutations {
             backtrack(nums, current, used, result);
 
             // Unchoose: backtrack
-            current.remove(current.size() - 1);
+            current.removeLast();
             used[i] = false;
         }
     }

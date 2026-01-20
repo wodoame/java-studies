@@ -139,6 +139,7 @@ public class BinarySearchTree {
 
             for (int i = 0; i < levelSize; i++) {
                 Node current = queue.poll();
+                assert current != null;
                 currentLevel.add(current.data);
 
                 if (current.left != null) {
