@@ -20,3 +20,6 @@ Embedding: An embedding is a vector representation of a piece of data (e.g. some
 that is meant to preserve aspects of its content and/or its meaning.
 Chunks of data that are similar in some way will tend to have embeddings that are closer together than unrelated data. 
 Tokens -> embeddings
+
+
+
