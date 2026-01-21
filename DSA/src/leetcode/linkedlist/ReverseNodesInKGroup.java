@@ -28,7 +28,7 @@ public class ReverseNodesInKGroup {
     ListNode current = head;
     ListNode start = head;
     ListNode newHead = head;
-    ListNode prevEnd = head;
+    ListNode prevEnd = null;
     while(current != null){
         ListNode nextStart = current.next;
         if(j - i + 1 == k){
@@ -37,9 +37,9 @@ public class ReverseNodesInKGroup {
             }
            current.next = null; // end this sublist
            reverseList(start);
-           start.next = nextStart;
-           prevEnd.next = current;
+           if(prevEnd != null)prevEnd.next = current;
            prevEnd = start;
+           start.next = nextStart;
            start = nextStart;
            i = j + 1;
         }
