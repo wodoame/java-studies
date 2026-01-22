@@ -3,11 +3,21 @@ package trees;
 import trees.bst.BinarySearchTree;
 import trees.bst.Node;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 public class Main {
     static void main() {
-        BinarySearchTree bst = new BinarySearchTree();
-        bst.root = treeExample1();
-        bst.inorderTraverse(System.out::println);
+//        BinarySearchTree bst = new BinarySearchTree();
+//        bst.root = treeExample1();
+//        bst.inorderTraverse(System.out::println);
+        Scanner scanner = new Scanner(System.in);
+        List<String> names;
+        System.out.print("Enter a list of names >> ");
+        String allNames = scanner.nextLine();
+        names = Arrays.asList(allNames.split(" "));
+        System.out.println("All names = " + names);
     }
     static Node treeExample1(){
         Node root = new Node(50);

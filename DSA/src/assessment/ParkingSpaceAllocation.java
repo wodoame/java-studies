@@ -9,11 +9,18 @@ public class ParkingSpaceAllocation {
     }
 
     public static void main(String[] args) {
-        Map<String, Integer> spaces = Map.of("P1", 15, "P2", 20, "P3", 25, "P4", 10);
-        Map<String, Integer> cars = Map.of("V1", 22, "V2", 18, "V3", 10, "V4", 8);
+        System.out.println("Enter inputs");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+        String line2 = scanner.nextLine();
+        String line3 = scanner.nextLine();
+        Map<String, Integer> spaces = InputParser.getMap(line2);
+        Map<String, Integer> cars = InputParser.getMap(line3);
 
-        Result res1 = solveTwoPointer(new HashMap<>(spaces), new HashMap<>(cars));
-        Result res2 = solveBestFit(new HashMap<>(spaces), new HashMap<>(cars));
+        Result res1 = solveTwoPointer(spaces, cars);
+        Result res2 = solveBestFit(spaces, cars);
+        System.out.printf("res1 = %d, res2 = %d\n", res1.count(), res2.count());
+        System.out.printf("res1 = %d, res2 = %d\n", res1.wastedSpace(), res2.wastedSpace());
 
         // Comparison Logic
         Result winner;
@@ -56,8 +63,9 @@ public class ParkingSpaceAllocation {
     static Result solveBestFit(Map<String, Integer> spaces, Map<String, Integer> cars) {
         TreeMap<Integer, Stack<String>> spaceMap = new TreeMap<>();
         spaces.forEach((id, size) -> spaceMap.computeIfAbsent(size, k -> new Stack<>()).push(id));
+        System.out.println(spaceMap);
 
-        var sortedCars = cars.entrySet().stream().sorted(Map.Entry.comparingByValue()).toList();
+        var sortedCars = cars.entrySet().stream().sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).toList();
         Map<String, String> assignments = new HashMap<>();
         int usedCapacity = 0;
 
