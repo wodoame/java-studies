@@ -1,3 +1,5 @@
+package assessment;
+
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.Reader;

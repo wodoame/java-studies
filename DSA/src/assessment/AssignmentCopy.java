@@ -1,3 +1,5 @@
+package assessment;
+
 public class AssignmentCopy {
 
     public static void main(String[] args) {

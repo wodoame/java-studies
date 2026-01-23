@@ -1,8 +1,10 @@
+package sorting;
+
 import java.util.Arrays;
 
 public class QuickSort {
     public static void main(String[] args) {
-        // Original QuickSort demonstration
+        // Original sorting.QuickSort demonstration
         int[] arr = {10, 7, 8, 9, 1, 5};
         int n = arr.length;
 
@@ -130,7 +132,7 @@ public class QuickSort {
             return arr[low];
         }
 
-        // Partition the array using the same partition method as QuickSort
+        // Partition the array using the same partition method as sorting.QuickSort
         int pi = partition(arr, low, high);
 
         // If partition index is the k-th position

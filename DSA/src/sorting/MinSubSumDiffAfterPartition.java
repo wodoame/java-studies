@@ -1,3 +1,5 @@
+package sorting;
+
 public class MinSubSumDiffAfterPartition {
     static void main() {
         int[] nums = {8, 3, 5, 1, 2};
