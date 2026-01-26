@@ -1,31 +1,33 @@
 package leetcode.greedy;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
 
 public class LargestNumber {
-    static void main() {
-        System.out.println("10".compareTo("2"));
-//        System.out.println(largestNumber(new int[]{10, 2}));
+    public static void main(String[] args) {
+        System.out.println(largestNumber(new int[]{10, 2}));
+        System.out.println(largestNumber(new int[]{3, 30, 34, 5, 9}));
     }
+
     public static String largestNumber(int[] nums) {
-        Comparator<Integer> largestStart = (a, b)->{
-            char x = Integer.toString(a).charAt(0);
-            char y = Integer.toString(b).charAt(0);
-            return (x - '0') - (y - '0');
-        };
-        List<Integer> numsSorted = new ArrayList<>();
-        for (int num : nums) {
-            numsSorted.add(num);
+        // Convert int array to string array
+        String[] sNums = new String[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            sNums[i] = String.valueOf(nums[i]);
         }
-        numsSorted.sort(largestStart.reversed());
-        System.out.println(numsSorted);
-        StringBuilder result = new StringBuilder();
-        for(int n: numsSorted){
-           result.append(n);
+
+        // Custom comparator: compare (b+a) with (a+b)
+        // If "b" + "a" is larger than "a" + "b", then "b" should come first.
+        Arrays.sort(sNums, (a, b) -> (b + a).compareTo(a + b));
+
+        // Edge case: multiple zeros (e.g., [0, 0]) answer should be "0", not "00"
+        if (sNums[0].equals("0")) {
+            return "0";
         }
-        return result.toString();
+
+        StringBuilder sb = new StringBuilder();
+        for (String s : sNums) {
+            sb.append(s);
+        }
+        return sb.toString();
     }
 }

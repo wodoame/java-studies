@@ -12,3 +12,8 @@
 11.  Search bars for admin section (priority 2) 
 12. Create a dedicated validation utils (priority 2)
 13. Manual report logging (priority 2)
+
+
+1. Start lab 5 and continue to improve the flaws from the previous lab.
+2. Inventory stock column
+3. Delete the automatic report logging and make it manual
