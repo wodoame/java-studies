@@ -1,6 +1,7 @@
 package assessment;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ParkingSpaceAllocationII {
     static void main() {
@@ -15,38 +16,17 @@ public class ParkingSpaceAllocationII {
     }
 
     static void allocateSpace(Map<String, Integer> spaces, Map<String, Integer> cars){
-        var sortedSpaces = spaces.entrySet().stream().sorted(Map.Entry.comparingByValue()).toList();
-        var sortedCars = cars.entrySet().stream().sorted(Map.Entry.comparingByValue()).toList();
-        System.out.println(sortedSpaces);
-        Map<String, String> assignments = new HashMap<>();
-        int wastedSpace = 0;
-        int carIdx = 0;
-        int spaceIdx = 0;
-        while(carIdx < cars.size() && spaceIdx < spaces.size()){
-            Map.Entry<String, Integer> space = sortedSpaces.get(spaceIdx);
-            Map.Entry<String, Integer> car = sortedCars.get(carIdx);
-            int spaceValue = space.getValue();
-            int carValue = car.getValue();
-
-            if(spaceValue >= carValue){
-               wastedSpace += spaceValue - carValue;
-               assignments.put(car.getKey(), space.getKey());
-               carIdx++;
-            }else{
-                wastedSpace += space.getValue();
-            }
-            spaceIdx++;
-        }
-        System.out.println("Parked cars = " + assignments.size());
-        System.out.println("Wasted space = " + wastedSpace);
-        assignments.forEach((k, v)-> System.out.print(k + " -> " + v + " "));
-    }
-
-    static void allocateSpaceBestFit(Map<String, Integer> spaces, Map<String, Integer> cars){
-        Map<Integer, Stack<String>> spaceMap = new TreeMap<>();
-        spaces.forEach((id, size)->spaceMap.computeIfAbsent(size, k-> new Stack<>()).push(id));
+        TreeMap<Integer, List<String>> spaceMap = new TreeMap<>();
+        Map<String, String> assignments = new TreeMap<>();
+        spaces.forEach((id, size)->{
+            List<String> spaceArray = spaceMap.get(size);
+            if(spaceArray == null)spaceMap.put(size, new ArrayList<>(List.of(id)));
+            else spaceArray.add(id);
+        });
         var sortedCars = cars.entrySet().stream().sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).toList();
-
+//        for (var car: sortedCars){
+            // TODO: continue implementation
+//        }
     }
 }
 
