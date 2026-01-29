@@ -1,17 +1,12 @@
 package demo;
 
-import java.util.List;
-
 public class Main {
-     static void main() {
-        User user = new User("Bernard Jones", "xxxxxxxx", "bmwodoame@gmail.com");
-        ValidationService validationService = new ValidationService();
-        var rules = List.of(Rules.isValidUser);
-        boolean isValidUser = validationService.validateUser(user, Rules.isValidUser);
-        boolean isValidPassword = validationService.validatePassword(user.getPassword(), "abcdedghij", Rules.isValidPassword);
-        boolean isMultiValid = validationService.validateMultipleRules(user, rules);
-        System.out.println(isValidUser);
-        System.out.println(isValidPassword);
-        System.out.println(isMultiValid);
+    public static void main(String[] args) throws IllegalAccessException {
+        UserProfile user1 = new UserProfile("JavaDev123"); // 10 chars - OK
+        UserProfile user2 = new UserProfile("Neovim_Enthusiast"); // 17 chars - FAIL
+        
+        Validator.validate(user1);
+        System.out.println("User 1 is valid!");
+        Validator.validate(user2); // This will throw the exception
     }
 }
