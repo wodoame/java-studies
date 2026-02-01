@@ -1,19 +1,5 @@
-1. When a product is clicked on in the admin panel, the edit and delete buttons should ONLY
-   then show on the table row beside the product details (priority 5)
-2. Understand functionalities (priority 2)  
-3. Tackle performance and query optimization requirements (priority 1)
-4. Prettify tabs (maybe with an underline marker showing the currently active tab) (priority 5)
-5. Stock status badges on admin page are not styled (priority 5)
-6. Authentication required for admins (priority 2)
-7. Database ERD (priority 1)
-8. Use environment variables to store credentials (priority 1)
-9. Seed data into the database for quick testing (priority 2)
-10. Store reviews in MONGODB (priority 1)
-11.  Search bars for admin section (priority 2) 
-12. Create a dedicated validation utils (priority 2)
-13. Manual report logging (priority 2)
-
-
 1. Start lab 5 and continue to improve the flaws from the previous lab.
 2. Inventory stock column
 3. Delete the automatic report logging and make it manual
+4. Let there be uniformity in on the product cards (names, descriptions, prices occupy the same lines)
+5.
