@@ -2,4 +2,4 @@
 2. Inventory stock column
 3. Delete the automatic report logging and make it manual
 4. Let there be uniformity in on the product cards (names, descriptions, prices occupy the same lines)
-5.
+5. Change the view product buttons to add to cart

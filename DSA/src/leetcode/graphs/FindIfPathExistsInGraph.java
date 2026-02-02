@@ -2,6 +2,8 @@ package leetcode.graphs;
 
 import java.util.*;
 
+// leetcode 1971
+// not optimal but will study optimal solution later
 public class FindIfPathExistsInGraph {
     static void main() {
         int n = 3;
@@ -11,9 +13,19 @@ public class FindIfPathExistsInGraph {
         System.out.println(validPath(n, edges, source, destination));
     }
     static boolean validPath(int n, int[][] edges, int source, int destination) {
-        System.out.println(buildGraph(edges));
-       // TODO: convert the edge list to an adjacency list
-       return false;
+       var graph = buildGraph(edges);
+       Set<Integer> visited = new HashSet<>();
+       return hasPath(graph, source, destination, visited);
+    }
+
+    static boolean hasPath(Map<Integer, List<Integer>> graph, int source, int destination, Set<Integer> visited){
+        if(visited.contains(source))return false;
+        if(source == destination)return true;
+        visited.add(source);
+        for(var neighbor: graph.get(source)){
+            if(hasPath(graph, neighbor, destination, visited))return true;
+        }
+        return false;
     }
 
     static Map<Integer, List<Integer>> buildGraph(int[][] edges){
