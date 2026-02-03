@@ -8,4 +8,3 @@
 8. Implement the review feature
 9. On the main page make the search be for both product names and category names.
 10. API endpoint for displaying all products under a specific category. Probably you could modify the existing search endpoint.
->>>>>>> 97130d8 (Solve a leetcode graph problem and write some notes for smecs projects)
