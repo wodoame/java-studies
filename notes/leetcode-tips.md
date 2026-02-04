@@ -30,3 +30,6 @@ public static int[] flatten(int[][] arr) {
 8. To find the kth largest or kth smallest element in an unsorted array you can use quickselect. Or more simply you can use a min-heap or a max-heap.
 9. When sorting a list of values based on another property (say their frequency), try to see if a comparator helps in the sorting. 
 10. You will need to solve some questions multiple times before the intuition becomes second nature. So don't worry if you don't remember how you solved a question previously: just learn it again.
+11. When solving a graph problem, you can convert a list of edges into an adjacency list in order to solve it more easily. 
+12. When solving graph problems that deal with relationships, you can try to model the problem in terms of incoming and outgoing edges. So you can store the number of incoming and outgoing edges for each node in a hash map (Or better still in an array serving as a hash map).
+13. When an array is used as hash map the execution time of the algorithm is usually better due to the static nature of the array.
