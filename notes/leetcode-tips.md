@@ -33,3 +33,4 @@ public static int[] flatten(int[][] arr) {
 11. When solving a graph problem, you can convert a list of edges into an adjacency list in order to solve it more easily. 
 12. When solving graph problems that deal with relationships, you can try to model the problem in terms of incoming and outgoing edges. So you can store the number of incoming and outgoing edges for each node in a hash map (Or better still in an array serving as a hash map).
 13. When an array is used as hash map the execution time of the algorithm is usually better due to the static nature of the array.
+14. Dynamic programming problems usually follow a recurrence relation (e.g dp[i] = dp[i-1] + dp[i-2]) so try to think of that.
