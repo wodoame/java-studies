@@ -3,3 +3,5 @@
 3. Implement the order feature
 4. Implement the review feature
 5. Should not be able to delete a category if it has products
+6. Create an admin orders management page
+7. Allow users to edit or delete their reviews
