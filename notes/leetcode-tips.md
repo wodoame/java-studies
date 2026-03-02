@@ -20,7 +20,7 @@ public static int[] flatten(int[][] arr) {
     int numElements = m * n;
     int[] res = new int[numElements];
     // NOTE:: 
-    // The formula i % n is the actual index of an element in its row
+    // The formula i % n is the actual index of an element in its row (In other words the column the element belongs to)
     // The formula i / n is the row the element belongs to
 
     for (int i = 0; i < numElements; i++)res[i] = arr[i / n][i % n]; 
@@ -36,3 +36,4 @@ public static int[] flatten(int[][] arr) {
 14. Dynamic programming problems usually follow a recurrence relation (e.g dp[i] = dp[i-1] + dp[i-2]) so try to think of that. Recursion and memoization also work too.
 15. When solving dynamic programming problems, try to start from the goal and work your way backwards.
 Every value in your `dp` array will represent the result it takes to reach the goal.
+16. Sliding window problems can be solved using a set to keep track of elements within the window. A common operation is to remove the last element from the set using something like `set.remove(nums[i - k])` where `k` is the size of the window.
