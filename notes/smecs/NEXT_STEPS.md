@@ -4,3 +4,4 @@
 4. @MapsId for carts and user relationships (remove cart creation logic)
 5. Authentication
 6. Add token blacklisting (add jwts when a user logs out)
+7. Add a strategy to handle bruteforce ips
